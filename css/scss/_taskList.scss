@@ -1,0 +1,41 @@
+#todoList {
+  border: 2px solid #dadada;
+  border-radius: 5px;
+  max-width: 320px;
+  padding: 20px;
+  margin: 50px auto;
+  div {
+    input {
+      width: 100%;
+      border-radius: 5px;
+    } // End Input Text
+    button {
+      margin-top: 10px;
+      background-color: #008000;
+      width: 100%;
+    } // End button
+  } // End div
+  #taskList {
+    margin-top: 20px;
+    text-align: center;
+    li {
+      padding-top: 20px;
+      border-top: 2px solid #dadada;
+      width: 100%;
+      button#editTask{
+        @extend %button;
+        background-color: #0080c0;
+      } // End Btn Edit
+      button#removeTask {
+        @extend %button;
+        background-color: tomato;
+      }
+    } // End Description
+  } // End TaskList
+} // End TodoList
+
+%button {
+  margin-top: 10px;
+  width: 100%;
+  display: block;
+};

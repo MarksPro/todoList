@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+ul {
+  list-style: none;
+}
+
+input[type="text"]{
+  padding: 8px;
+  outline: none;
+}
+
+label, li {
+  font-weight: bold;
+}
+
+button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: aliceblue;
+  text-transform: uppercase;  
+}
