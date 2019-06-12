@@ -26,24 +26,24 @@ function compilaSass() {
 gulp.task('sass', compilaSass);
 
 // Js Plugins
-function pluginsJs(){
-  return gulp.src(['js/plugins/*.js'])
-  .pipe(concat('plugin.js'))
-  .pipe(gulp.dest('js/plugin'))
-  .pipe(browserSync.stream());
-}
+// function pluginsJs(){
+//   return gulp.src(['js/plugins/*.js'])
+//   .pipe(concat('plugin.js'))
+//   .pipe(gulp.dest('js/plugin'))
+//   .pipe(browserSync.stream());
+// }
 
-gulp.task('pluginsjs', pluginsJs);
+// gulp.task('pluginsjs', pluginsJs);
 
 // Função para juntar o JS
 function gulpJs(){
-  return gulp.src('js/main/*.js')
+  return gulp.src('js/**/*.js')
+  /*.pipe(babel({
   .pipe(concat('script.js'))
-  .pipe(babel({
     presets: ['@babel/env']
-  }))
-  .pipe(uglify())
-  .pipe(gulp.dest('js/'))
+    .pipe(uglify())
+    .pipe(gulp.dest('js/'))
+  }))*/
   .pipe(browserSync.stream())
 };
 
@@ -64,8 +64,8 @@ gulp.task('browser-sync', browser);
 // Função de watch do Gulp
 function watch() {
   gulp.watch('css/scss/*.scss', compilaSass);
-  gulp.watch('js/main/*.js', gulpJs);
-  gulp.watch('js/plugins/*.js');
+  gulp.watch('js/**/*.js', gulpJs);
+  // gulp.watch('js/plugins/*.js');
   gulp.watch(['*.html']).on('change', browserSync.reload);
 };
 
@@ -73,4 +73,4 @@ function watch() {
 gulp.task('watch', watch);
 
 // Tarefa padrão do Gulp, que inicia o watch e o browser-sync
-gulp.task('default', gulp.parallel('watch', 'browser-sync', 'sass', 'mainjs', 'pluginsjs'));
+gulp.task('default', gulp.parallel('watch', 'browser-sync', 'sass', 'mainjs'));
